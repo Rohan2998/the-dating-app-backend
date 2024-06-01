@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+
 	fmt.Println("Welcome to the dating app")
 
 	// Load configuration
