@@ -23,7 +23,7 @@ func main() {
 	}
 	defer db.Close()
 
-	r := routes.SetupRouter()
+	r := routes.SetupRouter(db)
 	r.Run(":8080")
 
 	fmt.Println("Connection to database successfully done, starting server now..")

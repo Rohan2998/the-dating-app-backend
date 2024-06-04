@@ -1,9 +1,19 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"database/sql"
+
+	"github.com/gin-gonic/gin"
+)
 
 // setting up router for gin
-func SetupRouter() *gin.Engine {
+func SetupRouter(db *sql.DB) *gin.Engine {
 	r := gin.Default()
+
+	v1 := r.Group("api/v1")
+
+	// v1 user routes
+	UserRoutes(v1)
+
 	return r
 }
