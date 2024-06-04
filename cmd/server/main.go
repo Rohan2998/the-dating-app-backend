@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/Rohan2998/the-dating-app-backend/config"
+	"github.com/Rohan2998/the-dating-app-backend/internal/routes"
 	"github.com/Rohan2998/the-dating-app-backend/pkg/database"
 )
 
@@ -21,6 +22,9 @@ func main() {
 		log.Fatalf("Could not connect to the database: %v", err)
 	}
 	defer db.Close()
+
+	r := routes.SetupRouter()
+	r.Run(":8080")
 
 	fmt.Println("Connection to database successfully done, starting server now..")
 
