@@ -13,19 +13,20 @@ func main() {
 
 	fmt.Println("Welcome to the dating app")
 
-	// Load configuration
+	// load configuration
 	ptrConfig := config.LoadConfig()
 
-	// Connect to the database
+	// connect to the database
 	db, err := database.Connect(ptrConfig)
 	if err != nil {
 		log.Fatalf("Could not connect to the database: %v", err)
 	}
 	defer db.Close()
 
+	fmt.Println("Connection to database successfully done, starting server now..")
+
+	// starting gin server
 	r := routes.SetupRouter(db)
 	r.Run(":8080")
-
-	fmt.Println("Connection to database successfully done, starting server now..")
 
 }
