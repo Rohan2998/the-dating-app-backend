@@ -6,7 +6,7 @@ import (
 
 	"github.com/Rohan2998/the-dating-app-backend/config"
 	"github.com/Rohan2998/the-dating-app-backend/internal/routes"
-	"github.com/Rohan2998/the-dating-app-backend/pkg/database"
+	"github.com/Rohan2998/the-dating-app-backend/pkg/db"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	ptrConfig := config.LoadConfig()
 
 	// connect to the database
-	db, err := database.Connect(ptrConfig)
+	db, err := db.Connect(ptrConfig)
 	if err != nil {
 		log.Fatalf("Could not connect to the database: %v", err)
 	}
